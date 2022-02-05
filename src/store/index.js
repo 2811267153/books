@@ -4,8 +4,19 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    SearchList: [],
+    isShow: false,
+  },
+  mutations: {
+    listenShow(state, playLode){
+        state.isShow = playLode
+    },
+
+    searchState(state, payLode){
+      state.SearchList.push(payLode);
+    }
+  },
   actions: {},
   modules: {},
 });
