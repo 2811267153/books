@@ -59,5 +59,5 @@ export function getSex(){
 }
 //获取 排行榜详情
 export function getSexInfo(id){
-	return axios.get(`http://novel.kele8.cn/rank/${id}`)
+	return axios.get(`https://novel.kele8.cn/rank/${id}`)
 }
