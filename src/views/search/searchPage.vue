@@ -4,7 +4,8 @@
 			<div class="search_nav">
 				<nav class="search_bar">
 					<input
-					@keydown.enter="searchChange()"
+						ref="input"
+						@keydown.enter="searchChange()"
 						autocomplete="off"
 						type="text"
 						v-model.lazy="search_key"
@@ -12,7 +13,7 @@
 						@change="searchChange()"
 						placeholder="请输入你要查找的书籍"
 					/>
-					<button class=" icons icon iconfont icon-sousuo"></button>
+					<button class="icons icon iconfont icon-sousuo"></button>
 				</nav>
 			</div>
 		</header>
@@ -36,13 +37,13 @@
 							/>
 						</div>
 						<div class="main_info">
-							<p class="book_name">{{resultIndex.title}}</p>
-							<p class="book_author">{{resultIndex.author}}</p>
-							
-							<div class="book_tag">{{resultIndex.cat}}</div>
-							<div class="book_tag">{{bookInfo.cat}}</div>
-							<p class="book_desc">{{resultIndex.shortIntro}}</p>
-							
+							<p class="book_name">{{ resultIndex.title }}</p>
+							<p class="book_author">{{ resultIndex.author }}</p>
+
+							<div class="book_tag">{{ resultIndex.cat }}</div>
+							<div class="book_tag">{{ bookInfo.cat }}</div>
+							<p class="book_desc">{{ resultIndex.shortIntro }}</p>
+
 							<button class="to_detail">点击查看详细内容</button>
 						</div>
 					</div>
@@ -50,21 +51,30 @@
 			</section>
 			<!-- 所有搜索结果展示 -->
 			<section>
-				<article >
-						<div class="search_item" @click="toDetail(index)"  v-for="(item, index) in search_result " :key="item._id">
-							<div class="img_cover"><img :src="'http://statics.zhuishushenqi.com' + item.cover" alt=""></div>
-							<div class="item_info">
-								<p>{{item.title}}</p>
-								<p>{{item.author}}</p>
-							</div>
-							<div class="follow"> <i class="icon iconfont icon-xihuan-xuanzhong"></i> </div>
-
+				<article>
+					<div
+						class="search_item"
+						@click="toDetail(index)"
+						v-for="(item, index) in search_result"
+						:key="item._id"
+					>
+						<div class="img_cover">
+							<img
+								:src="'http://statics.zhuishushenqi.com' + item.cover"
+								alt=""
+							/>
 						</div>
+						<div class="item_info">
+							<p>{{ item.title }}</p>
+							<p>{{ item.author }}</p>
+						</div>
+						<div class="follow">
+							<i class="icon iconfont icon-xihuan-xuanzhong"></i>
+						</div>
+					</div>
 				</article>
 			</section>
 		</div>
-
-
 	</div>
 </template>
 
@@ -83,6 +93,8 @@ export default {
 	},
 	methods: {
 		searchChange() {
+			this.$refs.input.blur();
+
 			if (this.search_key.trim() == "" || this.search_key.length == 0) {
 				// this.search_result = [];
 				// return "请输入内容";
@@ -103,12 +115,16 @@ export default {
 				this.bookInfo = res.data;
 			});
 		},
-		
 
 		//跳转到书籍详情页
-		toDetail(index){
-			this.$router.push(`/detail/${this.search_result[index]._id}`)
-		}
+		toDetail(index) {
+			this.$router.push(`/detail/${this.search_result[index]._id}`);
+		},
+	},
+	mounted() {
+		//渲染是自动获取 焦点
+		// console.log();
+		this.$refs.input.focus();
 	},
 };
 </script>
@@ -193,14 +209,14 @@ header {
 	height: 350px;
 	border-radius: 15px;
 }
-.main_foo{
+.main_foo {
 	width: 300px;
 	display: inline-block;
 }
-.main_info{
+.main_info {
 	flex: 1;
 }
-.main_info img{
+.main_info img {
 	vertical-align: bottom;
 }
 .book_name {
@@ -224,13 +240,13 @@ header {
 	color: #ea4c89;
 }
 
-.to_detail{
+.to_detail {
 	width: 200px;
 	height: 50px;
 	background-color: rgb(122, 226, 245);
 	border: none;
 	color: #fff;
-border-radius: 10px;
+	border-radius: 10px;
 }
 .search_item {
 	display: flex;
@@ -243,12 +259,11 @@ border-radius: 10px;
 	box-shadow: 0 0 0 1px #f2f2f2;
 	border: 1px solid transparent;
 }
-.search_item:hover{
+.search_item:hover {
 	border: 1px solid #ea4c89;
 	box-shadow: 0 0 0 1px #ea4c89;
-
 }
-.search_item:hover .item_info p{
+.search_item:hover .item_info p {
 	color: #ea4c89;
 }
 .img_cover img {
@@ -259,13 +274,13 @@ border-radius: 10px;
 	overflow: hidden;
 }
 .item_info {
-	flex: 1	;
+	flex: 1;
 }
 .follow {
 	color: #ea4c89;
 	font-size: 40px;
 }
-.follow .iconfont{
+.follow .iconfont {
 	font-size: 20px;
 }
 </style>
