@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 const Home = () => import("../views/home/homePage.vue");
 const Detail = () => import("../views/detail/detailPage.vue");
+const Read = () => import("../views/detail/readBook.vue");
 const Search = () => import("../views/search/searchPage.vue");
 const My = () => import("../views/my/myPage.vue");
 
@@ -27,6 +28,14 @@ const routes = [
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
 		component: Detail,
+	},
+	{
+		path: "/read/:id/:order",
+		name: "Read",
+		// route level code-splitting
+		// this generates a separate chunk (about.[hash].js) for this route
+		// which is lazy-loaded when the route is visited.
+		component: Read,
 	},
 	{
 		path: "/my",

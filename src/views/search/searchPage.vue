@@ -4,6 +4,7 @@
 			<div class="search_nav">
 				<nav class="search_bar">
 					<input
+					@keydown.enter="searchChange()"
 						autocomplete="off"
 						type="text"
 						v-model.lazy="search_key"
@@ -18,7 +19,7 @@
 
 		<!-- 搜索内容展示 -->
 
-		<div class="search_bd">
+		<div v-show="search_result.length > 0" class="search_bd">
 			<p class="item_foo">
 				为您找到<span class="index_f">{{ search_result.length }}</span> 本小说
 				为您推荐
@@ -100,7 +101,6 @@ export default {
 		getBook(bookId) {
 			getBook(bookId).then((res) => {
 				this.bookInfo = res.data;
-				console.log(res);
 			});
 		},
 		
