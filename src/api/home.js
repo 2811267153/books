@@ -52,3 +52,12 @@ export function getBookContent(id, order){
 // export function bookChapters(id){
 // 	return axios.get(`http://novel.kele8.cn/book-chapters/${id}`)
 // }
+
+//获取 频道小说
+export function getSex(){
+	return axios.get(`http://novel.kele8.cn/rank-category`)
+}
+//获取 排行榜详情
+export function getSexInfo(id){
+	return axios.get(`http://novel.kele8.cn/rank/${id}`)
+}

@@ -111,8 +111,8 @@ export default {
 		this.getRecBook(this.id);
 		},
         toRedBook(index){
-			// console.log((this.chapters[index]).order);
-            this.$router.push(`/read/${this.id}/${this.chapters[index].order}`)
+			console.log((this.chapters[index]));
+            this.$router.push(`/read/${this.chapters[index].title}`)
         }
 	},
 	components: {

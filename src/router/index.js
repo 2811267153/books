@@ -30,7 +30,7 @@ const routes = [
 		component: Detail,
 	},
 	{
-		path: "/read/:id/:order",
+		path: "/read/:id",
 		name: "Read",
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route

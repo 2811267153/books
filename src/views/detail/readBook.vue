@@ -1,6 +1,8 @@
 <template>
     <div class="read_book">
-        <div class="read_bd">   <span class="err">ERR</span> 内部服务器错误， 请重试</div>
+        <div class="read_bd"><span class="err">{{id}}</span> 
+            <div class="res_err"><span>当前章节为收费章节请前往追书APP阅读</span> </div>
+        </div>
     </div>
 </template>
 
@@ -18,9 +20,6 @@
 
         created(){
             this.id = this.$route.params.id    
-            this.order = this.$route.params.order    
-            console.log(this.id);
-            this.getBookContent(this.id, this.order)
         },
         methods: {
             getBookContent(id, order){
@@ -45,5 +44,9 @@
 } 
 .err{
     color: red;
+}
+.res_err{
+    text-align: center;
+    padding-top: 200px;
 }
 </style>
