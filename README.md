@@ -1,24 +1,11 @@
 # read_book
 
 ## 项目初次提交 优化了搜索页ui样式 增加用户使用体验
-```
-npm install
-```
+## 完善了首页的功能服务，使UI更加啊统一
 
-### Compiles and hot-reloads for development
+## 所用技术栈
 ```
-npm run serve
+  1. 巩固了 vue的基本用法
+  2. 熟练使用vuex何vue.filter进行页面的渲染
+  3. 进一步熟悉了 axios的使用及封装方式，提升了整体性能
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
