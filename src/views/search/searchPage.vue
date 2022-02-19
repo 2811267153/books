@@ -207,6 +207,7 @@ header {
 
 .indexImage {
 	width: 200px;
+	margin-left: 22px;
 	height: 240px;
 	border-radius: 15px;
 }
