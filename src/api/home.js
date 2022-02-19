@@ -34,7 +34,7 @@ export function getBook(id) {
 }
 //获取 关于书籍章节详情
 export function bookChapters(id){
-	return axios.get(`http://novel.kele8.cn/book-chapters/${id}`)
+	return axios.get(`https://novel.kele8.cn/book-chapters/${id}`)
 }
 //获取 书籍源
 export function getBookRoot(id){
