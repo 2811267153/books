@@ -206,7 +206,8 @@ header {
 }
 
 .indexImage {
-	height: 350px;
+	width: 200px;
+	height: 240px;
 	border-radius: 15px;
 }
 .main_foo {
