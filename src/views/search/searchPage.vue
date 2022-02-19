@@ -30,7 +30,7 @@
 					<div class="search_main">
 						<div class="main_foo">
 							<img
-								:src="'http://statics.zhuishushenqi.com' + resultIndex.cover"
+								:src="'https://statics.zhuishushenqi.com' + resultIndex.cover"
 								alt=""
 								srcset=""
 								class="indexImage"

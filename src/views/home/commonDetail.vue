@@ -4,9 +4,9 @@
 			<div class="common_title">
 				<h2>{{ item.title }}</h2>
 			</div>
-			<div v-if="resResult.length != 0" class="common_bd">
+			<div v-if="resResult.length !== 0" class="common_bd">
 				<div v-for="item_info in resResult[index]" :key="item_info._id">
-					<div class="item_info" @click="toDetailPage(item_info)">
+					<div v-if="item!== ''" class="item_info" @click="toDetailPage(item_info)">
 						<img
 							:src="'http://statics.zhuishushenqi.com' + item_info.cover"
 							alt=""
